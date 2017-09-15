@@ -1,0 +1,70 @@
+<html xmlns="http://thymeleaf.org">
+
+<head>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet" type="text/css"></link>
+    
+</head>
+
+<body>
+    <div class="container">
+        <script type="text/javascript" th:src="@{/js/jquery-3.1.0.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+    </div>
+    <span>
+    <form style="margin-top:64px;text-align:center" action = "/findOne" method="get" class= "search-form" >
+            <input style="width:40% ;float:left; margin-left: 70px;  margin-right: -600px;
+            " id="airfield-name" name="aircraft-name" type="text" placeholder="Aircraft Name" class="form-control input-md" required="" />
+            <button id="submit" name="submit" class="btn btn-primary btn-login">Search</button>
+            </form>
+            </span>
+    <div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>AirCraft</th>
+                        <th>AirField</th>
+                        <th>IOCA Code</th>
+                        <th>Date Opened</th>
+                        <th>Runway Length</th>
+                        <th>
+                        <div class="col-md-4">
+                        <a href="sort">	<button id="submit" name="submit" class="btn btn-primary btn-login">Sort</button></a>
+                    	</div>
+                    </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="aircraft : ${aircrafts}">                       
+                        <td th:text="${aircraft.aircraft_name}"></td>
+                        <td th:text="${aircraft.airfield}"></td>
+                        <td th:text="${aircraft.ICAO_code}"></td>
+                        <td th:text="${aircraft.openedDate}"></td>
+                        <td th:text="${aircraft.runway_length}"></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Space Jet</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/addNew}" href="addnew">Add AirCraft</a></li>
+                    <li><a th:href="@{/viewAll}" href="viewAll">View All Jets</a></li>
+                    <li><a th:href="@{/viewAll}" href="viewAll">Get A Flight</a></li>
+                    <li><a th:href="@{/login}" href="login">Login</a></li>
+                    <li><a th:href="@{/logout}" href="logout"><i class="icon-chevron-left"></i>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+</html>
