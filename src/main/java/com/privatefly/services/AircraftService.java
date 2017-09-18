@@ -1,4 +1,4 @@
-package com.javapointers.services;
+package com.privatefly.services;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,22 +7,13 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import com.javapointers.models.Aircraft;
+
+import com.privatefly.models.Aircraft;
 
 
 @Service
-public class aircraftService {
+public class AircraftService {
 	 private static List<Aircraft> aircraft = new ArrayList<Aircraft>();
-	    private static int aircraftCount = 3;
-
-//	    static {
-//	    	aircraft.add(new aircraft(1001, "Wright Flyer", "Logan County Airport","KAAA", new Date(),
-//	        		"1 km"));
-//	        aircraft.add(new aircraft(2, "Boeing 787", "Apalachicola Regional Airport","KAAF (AAF)", new Date(),
-//	        		"2 km "));
-//	        aircraft.add(new aircraft(3, "Cirrus SR22", "Colonel James Jabara Airpor","KAAO", new Date(),
-//	        		"1 km"));
-//	    }
 	    public List<Aircraft> fetchAll(String aircraft_name) {
 	        List<Aircraft> selected_aircraft = new ArrayList<Aircraft>();
 	        for (Aircraft aircraft : aircraft) {

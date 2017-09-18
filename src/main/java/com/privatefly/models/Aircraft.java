@@ -1,4 +1,4 @@
-package com.javapointers.models;
+package com.privatefly.models;
 
 import java.util.Date;
 
