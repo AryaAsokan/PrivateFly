@@ -32,7 +32,6 @@ public class Aircraft {
     
     public Aircraft(String aircraftname, String airfield, String ICAO_code, Date openedDate,String runway_length) {
 		super();
-	    //this.id = id;
 	    this.aircraftname = aircraftname;
 	    this.airfield = airfield;
 	    this.ICAO_code = ICAO_code;

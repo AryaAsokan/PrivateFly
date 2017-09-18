@@ -29,78 +29,10 @@ public class HomeController {
 
 	@Autowired
 	public AircraftService aircraftService;
-
-	@RequestMapping(value = "/addNew")
-	public String addNewAircraft() {
-		return "/addNew";
-	}
-
-	@RequestMapping(value = "/addNewJet", method = RequestMethod.POST)
-	public String create(@RequestParam("aircraft-name") String aircraftname,
-			@RequestParam("airfield-name") String airfieldname, @RequestParam("icao-code") String ICAOcode,
-			@RequestParam("date-opened") Date openedDate, @RequestParam("runway-length") String runwaylength) {
-		// logs debug message
-		if (logger.isDebugEnabled()) {
-			logger.debug("Added new Aircraft details!");
-		}
-		// logs exception
-		logger.error("This is Error message", new Exception("Testing"));
-
-		try {
-			Aircraft aircraft = new Aircraft(aircraftname, airfieldname, ICAOcode, openedDate, runwaylength);
-			aircraftDao.save(aircraft);
-			return "redirect:/viewAll";
-		} catch (Exception ex) {
-			return "Error creating the user: " + ex.toString();
-		}
-	}
+	
 
 	@RequestMapping(value = "/viewAll")
-	public String viewAllJets(ModelMap map) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Retrieved all aircraft details!");
-		}
-		// logs exception
-		logger.error("This is Error message", new Exception("Testing"));
-
-		try {
-			Iterable<Aircraft> aircrafts = aircraftDao.findAll();
-			map.addAttribute("aircrafts", aircrafts);
-		} catch (Exception ex) {
-			return "User not found";
-		}
+	public String addNewAircraft() {
 		return "viewAll";
 	}
-
-	@RequestMapping(value = "/sort")
-	public String sortAll(ModelMap map) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Sorted !");
-		}
-		// logs exception
-		logger.error("This is Error message", new Exception("Testing"));
-
-		try {
-			Iterable<Aircraft> aircrafts = aircraftDao.findAllByOrderByAirfieldAsc();
-			map.addAttribute("aircrafts", aircrafts);
-			return "viewAll";
-		} catch (Exception ex) {
-			return "Data not found";
-		}
-	}
-
-	@RequestMapping(value = "/findOne")
-	public String listOne(ModelMap map, @RequestParam("aircraft-name") String airfieldname) {
-		if (logger.isDebugEnabled()) {
-			logger.debug("Searched an aircraft details!");
-		}
-		try {
-			Aircraft aircraft = new Aircraft();
-			map.addAttribute("aircrafts", aircraftDao.findByAircraftname(airfieldname));
-			return "viewAll";
-		} catch (Exception ex) {
-			return "Data not found";
-		}
-	}
-
 }

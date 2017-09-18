@@ -1,34 +1,42 @@
 package com.privatefly.services;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.privatefly.models.Aircraft;
-
+import com.privatefly.models.AircraftDao;
 
 @Service
 public class AircraftService {
-	 private static List<Aircraft> aircraft = new ArrayList<Aircraft>();
-	    public List<Aircraft> fetchAll(String aircraft_name) {
-	        List<Aircraft> selected_aircraft = new ArrayList<Aircraft>();
-	        for (Aircraft aircraft : aircraft) {
-	            if (aircraft.getAircraft_name().equalsIgnoreCase(aircraft_name)) {
-	            	selected_aircraft.add(aircraft);
-	            }
-	        }
-	        return selected_aircraft;
-	    }
-	    public List<Aircraft> listAll() {
-	        
-	        return aircraft;
-	    }
-	    
-	    public List<Aircraft> sort() {
-	    	return aircraft;
-	    }
+	@Autowired
+	private AircraftDao aircraftDao;
+	
+	
+	public Iterable<Aircraft> viewAllAircrafts(){
+		return aircraftDao.findAll();
+		}
+	
+	public Iterable<Aircraft> sortedAircrafts(){
+		return aircraftDao.findAllByOrderByAirfieldAsc();
+		}
+	
+	
+	public void createNewAircraft(String aircraftname,String airfieldname,String ICAOcode,Date openedDate,String runwaylength){
+		Aircraft aircraft = new Aircraft(aircraftname, airfieldname, ICAOcode, openedDate, runwaylength);
+		aircraftDao.save(aircraft);
+		}
+	
+	
+	public Aircraft searchAircraft(String airfield){
+		return aircraftDao.findByAircraftname(airfield);
+	}
+	
 }
