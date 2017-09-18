@@ -7,12 +7,12 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-import com.javapointers.models.aircraft;
+import com.javapointers.models.Aircraft;
 
 
 @Service
 public class aircraftService {
-	 private static List<aircraft> aircraft = new ArrayList<aircraft>();
+	 private static List<Aircraft> aircraft = new ArrayList<Aircraft>();
 	    private static int aircraftCount = 3;
 
 //	    static {
@@ -23,21 +23,21 @@ public class aircraftService {
 //	        aircraft.add(new aircraft(3, "Cirrus SR22", "Colonel James Jabara Airpor","KAAO", new Date(),
 //	        		"1 km"));
 //	    }
-	    public List<aircraft> fetchAll(String aircraft_name) {
-	        List<aircraft> selected_aircraft = new ArrayList<aircraft>();
-	        for (aircraft aircraft : aircraft) {
+	    public List<Aircraft> fetchAll(String aircraft_name) {
+	        List<Aircraft> selected_aircraft = new ArrayList<Aircraft>();
+	        for (Aircraft aircraft : aircraft) {
 	            if (aircraft.getAircraft_name().equalsIgnoreCase(aircraft_name)) {
 	            	selected_aircraft.add(aircraft);
 	            }
 	        }
 	        return selected_aircraft;
 	    }
-	    public List<aircraft> listAll() {
+	    public List<Aircraft> listAll() {
 	        
 	        return aircraft;
 	    }
 	    
-	    public List<aircraft> sort() {
+	    public List<Aircraft> sort() {
 	    	return aircraft;
 	    }
 }

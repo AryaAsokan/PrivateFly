@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="aircrafts")
-public class aircraft {
+public class Aircraft {
 	@Id
 	  @GeneratedValue(strategy = GenerationType.AUTO)
 	  private long id;
@@ -26,11 +26,11 @@ public class aircraft {
 	@NotNull
     private String ICAO_code;
 
-    public aircraft() {
+    public Aircraft() {
     	super();
     }
     
-    public aircraft(String aircraftname, String airfield, String ICAO_code, Date openedDate,String runway_length) {
+    public Aircraft(String aircraftname, String airfield, String ICAO_code, Date openedDate,String runway_length) {
 		super();
 	    //this.id = id;
 	    this.aircraftname = aircraftname;

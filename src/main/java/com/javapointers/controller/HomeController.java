@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.apache.log4j.Logger;
 
-import com.javapointers.models.aircraft;
+import com.javapointers.models.Aircraft;
 import com.javapointers.services.aircraftService;
 
 
-import com.javapointers.models.aircraftDao;
+import com.javapointers.models.AircraftDao;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +28,7 @@ public class HomeController {
 	
 	private static final Logger logger = Logger.getLogger(HomeController.class);
 	@Autowired
-	  private aircraftDao aircraftDao;
+	  private AircraftDao aircraftDao;
 	
 	@Autowired
     public aircraftService aircraftService;
@@ -48,7 +48,7 @@ public class HomeController {
     			logger.error("This is Error message", new Exception("Testing"));
 
     	try {
-        	aircraft aircraft = new aircraft(aircraftname, airfieldname,ICAOcode, openedDate, runwaylength);
+        	Aircraft aircraft = new Aircraft(aircraftname, airfieldname,ICAOcode, openedDate, runwaylength);
         	aircraftDao.save(aircraft);
         	return "redirect:/viewAll";
         }
@@ -67,7 +67,7 @@ public class HomeController {
     			logger.error("This is Error message", new Exception("Testing"));
 
       try {
-    	Iterable <aircraft> aircrafts = aircraftDao.findAll();
+    	Iterable <Aircraft> aircrafts = aircraftDao.findAll();
        	map.addAttribute("aircrafts", aircrafts);
       }
       catch(Exception ex) {
@@ -86,7 +86,7 @@ public class HomeController {
     			logger.error("This is Error message", new Exception("Testing"));
 
     	try {
-    		Iterable <aircraft> aircrafts = aircraftDao.findAllByOrderByAirfieldAsc();
+    		Iterable <Aircraft> aircrafts = aircraftDao.findAllByOrderByAirfieldAsc();
     		map.addAttribute("aircrafts", aircrafts);
     		return "viewAll";
     	}
@@ -101,7 +101,7 @@ public class HomeController {
 			logger.debug("Searched an aircraft details!");
 		}
     	try {
-    		aircraft aircraft = new aircraft();
+    		Aircraft aircraft = new Aircraft();
     		map.addAttribute("aircrafts", aircraftDao.findByAircraftname(airfieldname));
     		return "viewAll";
     	}
