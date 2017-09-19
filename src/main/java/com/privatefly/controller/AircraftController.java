@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -68,8 +69,8 @@ public class AircraftController {
 		
 	}
 
-	@RequestMapping(value = "/aircraft", method = RequestMethod.GET)
-	public ResponseEntity<Aircraft> listOne(ModelMap map, @RequestParam("aircraftName") String aircraftName) {
+	@RequestMapping(value = "/aircraft/{aircraftName}", method = RequestMethod.GET)
+	public ResponseEntity<Aircraft> listOne(@PathVariable("aircraftName") String aircraftName) {
 		logger.info("Searching");
 		return new ResponseEntity<Aircraft>(aircraftService.searchAircraft(aircraftName), HttpStatus.OK);
 		

@@ -39,4 +39,7 @@ public class AircraftService {
 		return aircraftDao.findByAircraftname(airfield);
 	}
 	
+	public boolean exists(String aircraftName) {
+		return aircraftDao.findByAircraftname(aircraftName) != null;
+	}
 }

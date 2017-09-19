@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Implementation-Title: simple-spring-boot
+Implementation-Title: PrivateFly
 Implementation-Version: 1.0-SNAPSHOT
 Built-By: qburst
 Implementation-Vendor-Id: com.privatefly

@@ -1,7 +1,6 @@
-/home/qburst/PrivateFly/src/main/java/com/javapointers/services/aircraft.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/controller/aircraftController.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/Application.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/services/aircraftService.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/models/aircraft.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/models/aircraftDao.java
-/home/qburst/PrivateFly/src/main/java/com/javapointers/controller/HomeController.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/services/AircraftService.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/controller/HomeController.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/controller/AircraftController.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/models/Aircraft.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/Application.java
+/home/qburst/PrivateFly/src/main/java/com/privatefly/models/AircraftDao.java

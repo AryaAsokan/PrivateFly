@@ -1,0 +1,6 @@
+com/privatefly/models/Aircraft.class
+com/privatefly/controller/HomeController.class
+com/privatefly/services/AircraftService.class
+com/privatefly/Application.class
+com/privatefly/models/AircraftDao.class
+com/privatefly/controller/AircraftController.class

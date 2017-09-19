@@ -29,7 +29,7 @@
 			$(".search").on("click", function(){
 				var aircraftName = $('#searchField').val();
 				$.ajax({
-					url : "http://localhost:8085/aircraft?aircraftName=" + aircraftName,
+					url : "http://localhost:8085/aircraft/" + aircraftName,
 					success : function(result) {
 						var tableData = "<tr><td>" + result.aircraft_name + "</td>" + 
 						"<td>" + result.airfield +"</td>" + "<td>"
